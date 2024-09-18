@@ -5,10 +5,9 @@ Markov Affinity-based Graph Imputation of Cells (MAGIC)
 ```
 git config --global user.email "eliu11037@gmail.com"
 git config --global user.name "Yuyu-Liu11037"
-conda create -n MAGIC
+conda create -n MAGIC python=3.10
 source activate MAGIC
-pip install --user magic-impute
-pip install --upgrade numpy pandas
+conda install pytorch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install anndata scanpy leidenalg
 ```
 
