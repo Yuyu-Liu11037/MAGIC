@@ -33,7 +33,6 @@ sc.pp.highly_variable_genes(
 adata = ad.concat([adata_GEX, adata_ADT], axis=1, merge="first")
 adata.write_h5ad("/workspace/MAGIC/data/citeseq_preprocessed.h5ad")
 print(f"Finish preprocessing\n")
-sys.exit()
 #####################################################################################################################################
 
 adata.obs.to_csv('/workspace/MAGIC/data/citeseq_processed_cell_metadata.csv')

@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 import numpy as np
 import random
+import time
 
 
 SITE1_CELL = 16311
@@ -13,16 +14,15 @@ row_1 = SITE1_CELL + SITE2_CELL
 row_2 = SITE1_CELL + SITE2_CELL + SITE3_CELL
 
 X = pd.read_csv("/workspace/MAGIC/data/citeseq_missing.csv", index_col=0)
-print(X.shape)
 
 selected_rows = random.sample(range(row_1, row_2), SITE3_CELL)
 X_selected = X.iloc[selected_rows, :]
-print(X_selected.shape)
 
+start_time = time.time()
 magic_operator = magic.MAGIC()
 X_selected_magic = magic_operator.fit_transform(X_selected)
 X.iloc[selected_rows, :] = X_selected_magic
-print(X.shape)
+print(f"Time used: {time.time() - start_time:.2f}")
 
 chunk_size = 10000
 print(f'Start writing in chunks.\n')
